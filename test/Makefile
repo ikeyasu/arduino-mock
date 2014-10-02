@@ -45,7 +45,6 @@ CXXFLAGS += -g -Wall -Wextra -pthread \
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
 TESTS = arduino_unittest wire_unittest serial_unittest spark_unittest eeprom_unittest
-# 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
 GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
