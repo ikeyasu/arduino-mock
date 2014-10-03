@@ -18,10 +18,10 @@ void releaseWiFiMock()
 }
 
 void WiFi::on(){
-  p_WifiMock->on();
+  p_WiFiMock->on();
 }
 
-void WiFI::off(){
+void WiFi::off(){
   p_WiFiMock->off();
 }
 
