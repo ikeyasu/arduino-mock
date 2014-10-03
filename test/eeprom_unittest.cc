@@ -5,11 +5,11 @@ EEPROM eeprom;
 using ::testing::Return;
 
 TEST(eeprom, access) {
-  MockEEPROM* mock = MockEEPROMInstance();
-  int a = 5; int b = 6;
-  EXPECT_CALL(*mock, read(a));
-  EXPECT_CALL(*mock, write(a,b));
-  eeprom.read(a);
-  eeprom.write(a,b);
-  releaseMockEEPROM();
+  EEPROMMock* mock = EEPROMMockInstance();
+  int expected_address = 5; int expected_value = 6;
+  EXPECT_CALL(*mock, read(expected_value));
+  EXPECT_CALL(*mock, write(expected_address,expected_value));
+  eeprom.read(expected_value);
+  eeprom.write(expected_address,expected_value);
+  releaseEEPROMMock();
 }

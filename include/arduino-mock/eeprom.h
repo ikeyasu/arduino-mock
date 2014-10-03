@@ -16,13 +16,13 @@ class EEPROM
 };
 
 
-class MockEEPROM
+class EEPROMMock
 {
-	public:
-		MOCK_METHOD1(read, uint8_t(int));
-		MOCK_METHOD2(write, void(int, uint8_t));
+  public:
+    MOCK_METHOD1(read, uint8_t(int));
+    MOCK_METHOD2(write, void(int, uint8_t));
 };
 
-MockEEPROM* MockEEPROMInstance();
-void releaseMockEEPROM();
+EEPROMMock* EEPROMMockInstance();
+void releaseEEPROMMock();
 #endif

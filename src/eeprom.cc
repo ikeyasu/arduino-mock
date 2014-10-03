@@ -2,27 +2,27 @@
 
 #include "arduino-mock/eeprom.h"
 
-static MockEEPROM* p_MockEEPROM = NULL;
-MockEEPROM* MockEEPROMInstance()
+static EEPROMMock* p_EEPROMMock = NULL;
+EEPROMMock* EEPROMMockInstance()
 {
-	if (!p_MockEEPROM){
-		p_MockEEPROM = new MockEEPROM();
-		}
-	return p_MockEEPROM;
+  if (!p_EEPROMMock){
+    p_EEPROMMock = new EEPROMMock();
+  }
+  return p_EEPROMMock;
 }
 
-void releaseMockEEPROM()
+void releaseEEPROMMock()
 {
-	if (p_MockEEPROM){
-		delete p_MockEEPROM;
-		p_MockEEPROM = NULL;
-	}
+  if (p_EEPROMMock){
+    delete p_EEPROMMock;
+    p_EEPROMMock = NULL;
+  }
 }
 
 uint8_t EEPROM::read(int a){
-	return p_MockEEPROM->read(a);
+  return p_EEPROMMock->read(a);
 }
 
 void EEPROM::write(int a, uint8_t b){
-	p_MockEEPROM->write(a, b);
+  p_EEPROMMock->write(a, b);
 }

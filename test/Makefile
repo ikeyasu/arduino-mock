@@ -45,6 +45,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread \
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
 TESTS = arduino_unittest wire_unittest serial_unittest spark_unittest eeprom_unittest
+
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
 GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
@@ -98,7 +99,7 @@ gmock_main.a : gmock-all.o gtest-all.o gmock_main.o
 	$(AR) $(ARFLAGS) $@ $^
 
 # Builds Arduino mocks.
-arduino_mock_all.a : arduino.o serial.o spark.o eeprom.o wire.o
+arduino_mock_all.a : arduino.o serial.o spark.o eeprom.o
 	$(AR) $(ARFLAGS) $@ $^
 
 arduino.o : $(ARDUINO_MOCK_DIR)/include/arduino-mock/arduino.h \
@@ -120,11 +121,12 @@ eeprom.o: $(ARDUINO_MOCK_DIR)/include/arduino-mock/eeprom.h \
 		$(ARDUINO_MOCK_DIR)/src/eeprom.cc
 	$(CXX) $(CPPFLAGS) -I$(ARDUINO_MOCK_DIR) $(CXXFLAGS) -c \
 		$(ARDUINO_MOCK_DIR)/src/eeprom.cc
-		
-wire.o: $(ARDUINO_MOCK_DIR)/include/arduino-mock/wire.h \
-		$(ARDUINO_MOCK_DIR)/src/wire.cc
-	$(CXX) $(CPPFLAGS) -I$(ARDUINO_MOCK_DIR) $(CXXFLAGS) -c \
-		$(ARDUINO_MOCK_DIR)/src/wire.cc
+
+#Uncomment this to run wire.cc unittest	, and also add wire.o as requirements for arduino_mock_all.a	
+#wire.o: $(ARDUINO_MOCK_DIR)/include/arduino-mock/wire.h \
+#		$(ARDUINO_MOCK_DIR)/src/wire.cc
+#	$(CXX) $(CPPFLAGS) -I$(ARDUINO_MOCK_DIR) $(CXXFLAGS) -c \
+#		$(ARDUINO_MOCK_DIR)/src/wire.cc
 
 # Builds a test.  A test should link with either gtest.a or
 # gtest_main.a, depending on whether it defines its own main()
@@ -166,11 +168,11 @@ eeprom_unittest : eeprom_unittest.o \
 				arduino_mock_all.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
 	
-wire_unittest.o : $(TEST_DIR)/wire_unittest.cc \
-				$(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(TEST_DIR)/wire_unittest.cc
+#wire_unittest.o : $(TEST_DIR)/wire_unittest.cc \
+#				$(GTEST_HEADERS)
+#	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(TEST_DIR)/wire_unittest.cc
 	
-wire_unittest : wire_unittest.o \
-				gmock_main.a  \
-				arduino_mock_all.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+#wire_unittest : wire_unittest.o \
+#				gmock_main.a  \
+#				arduino_mock_all.a
+#	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
