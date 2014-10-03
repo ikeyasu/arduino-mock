@@ -14,12 +14,40 @@
 
 class SparkMock {
   public:
+    MOCK_METHOD2(variable, void(const char*, int*));
+	MOCK_METHOD2(function, void(char*, char*));
+	MOCK_METHOD2(subscribe, void(char*, char*));
+	MOCK_METHOD0(connect, void());
+	MOCK_METHOD0(disconnect, void());
+	MOCK_METHOD0(connected, bool());
+	MOCK_METHOD0(process, void());
+	MOCK_METHOD0(deviceID, char*());
+	MOCK_METHOD0(sleep, void());
+	MOCK_METHOD1(sleep, void(int));
+	MOCK_METHOD2(sleep, void(char*, int));
+	MOCK_METHOD2(sleep, void(uint16_t, uint16_t));
+	MOCK_METHOD3(sleep, void(uint16_t, uint16_t, int));
+	MOCK_METHOD0(syncTime, void());
     MOCK_METHOD2(publish, void(const char *, const char *));
 };
 
 class Spark_ {
   public:
+    void variable(const char* name, int* p_value);
+    void function(char* funckey, char* funcname);
     static void publish(const char *eventName, const char *data);
+    void subscribe(char* name, char* cbHandler);
+    void connect();
+    void disconnect();
+    bool connected(); // return true once connected
+    void process(); // checks the Wi-Fi module for incoming message
+    char* deviceID(); // return the device ID
+	void sleep(); // put the module in sleep mode
+	void sleep(int seconds); // put the module in sleep mode in [seconds] period
+	void sleep(char* sleep_mode, int seconds); // put the wifi module in deep sleep mode
+	void sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode);
+	void sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, int seconds);
+	void syncTime(); // Synchronize time with the Spark Cloud
 };
 
 SparkMock* sparkMockInstance();

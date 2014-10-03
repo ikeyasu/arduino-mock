@@ -14,8 +14,11 @@ using ::testing::StrCaseEq;
 
 TEST(publish, normal) {
   SparkMock* sparkMock = sparkMockInstance();
+  int analogvalue = 10;
+  EXPECT_CALL(*sparkMock, variable(StrCaseEq("analogvalue"), &analogvalue));
   EXPECT_CALL(*sparkMock,
               publish(StrCaseEq("test"), StrCaseEq("test")));
+  Spark.variable("analogvalue", &analogvalue);
   Spark.publish("test", "test");
   releaseSparkMock();
 }
