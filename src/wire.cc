@@ -1,55 +1,79 @@
 #include "arduino-mock/wire.h"
 
-static TwoWireMock* p_TwoWireMock = NULL;
-TwoWireMock* TwoWireMockInstance()
+static WireMock* p_WireMock = NULL;
+WireMock* WireMockInstance()
 {
-	if (!p_TwoWireMock){
-		p_TwoWireMock = new TwoWireMock();
-		}
-	return p_TwoWireMock;
+  if (!p_WireMock){
+    p_WireMock = new WireMock();
+  }
+  return p_WireMock;
 }
 
-void releaseTwoWireMock()
+void releaseWireMock()
 {
-	if (p_TwoWireMock){
-		delete p_TwoWireMock;
-		p_TwoWireMock = NULL;
-	}
+  if (p_WireMock){
+    delete p_WireMock;
+    p_WireMock = NULL;
+  }
 }
 
-void TwoWire::begin(){
-	p_TwoWireMock->begin();
+void Wire::begin(){
+  p_WireMock->begin();
 }
 
-void TwoWire::begin(uint8_t a){
-	p_TwoWireMock->begin(a);
+void Wire::begin(uint8_t a){
+  p_WireMock->begin(a);
 }
 
-void TwoWire::begin(int a){
-	p_TwoWireMock->begin(a);
+void Wire::begin(int a){
+  p_WireMock->begin(a);
 }
 
-void beginTransmission(uint8_t a){
-	p_TwoWireMock->beginTransmission(a);
+void Wire::beginTransmission(uint8_t a){
+  p_WireMock->beginTransmission(a);
 }
 
-void beginTransmission(int a){
-	p_TwoWireMock->beginTransmission(a);
+
+uint8_t Wire::endTransmission(void){
+  return p_WireMock->endTransmission();
 }
 
-uint8_t endTransmission(void){
-	return p_TwoWireMock->endTransmission();
+uint8_t Wire::write(uint8_t a){
+  return p_WireMock->write(a);
 }
 
-uint8_t TwoWire::endTransmission(uint8_t a){
-	return p_TwoWireMock->endTransmission(a);
+uint8_t Wire::write(char* a){
+  return p_WireMock->write(a);
 }
 
-uint8_t TwoWire::requestFrom(uint8_t a, uint8_t b){
-	return p_TwoWireMock->requestFrom(a,b);
+uint8_t Wire::write(uint8_t a, uint8_t b){
+	return p_WireMock->write(a,b);
 }
 
-uint8_t requestFrom(uint8_t a, uint8_t b, uint8_t c){
-	return p_TwoWireMock->requestFrom(a,b,c);
+uint8_t Wire::available(void){
+  return p_WireMock->available();
 }
 
+uint8_t Wire::read(void){
+  return p_WireMock->read();
+}
+
+void Wire::onReceive(uint8_t* a){
+  p_WireMock->onReceive(a);
+}  
+
+void Wire::onRequest(uint8_t* a){
+  p_WireMock->onRequest(a);
+}
+
+uint8_t Wire::endTransmission(uint8_t a){
+  return p_WireMock->endTransmission(a);
+}
+
+uint8_t Wire::requestFrom(uint8_t a, uint8_t b){
+  return p_WireMock->requestFrom(a,b);
+}
+
+uint8_t Wire::requestFrom(uint8_t a, uint8_t b, uint8_t c){
+  return p_WireMock->requestFrom(a,b,c);
+}
