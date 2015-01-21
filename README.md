@@ -1,6 +1,8 @@
 arduino-mock
 ============
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ikeyasu/arduino-mock?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A GMock stub library for a mock of Arduino libraries.
 
 How it works
