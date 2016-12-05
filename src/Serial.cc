@@ -220,5 +220,13 @@ uint8_t Serial_::read() {
   return gSerialMock->read();
 }
 
+uint8_t Serial_::peek() {
+  return gSerialMock->peek();
+}
+
+String Serial_::readStringUntil(const char term) {
+  return gSerialMock->readStringUntil(term);
+}
+
 // Preinstantiate Objects
 Serial_ Serial;

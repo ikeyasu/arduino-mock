@@ -38,6 +38,8 @@ class SerialMock {
 
     MOCK_METHOD0(available, uint8_t());
     MOCK_METHOD0(read, uint8_t());
+    MOCK_METHOD1(readStringUntil, String(const char));
+    MOCK_METHOD0(peek, uint8_t());
 
     MOCK_METHOD0(flush, void());
 
@@ -86,6 +88,8 @@ class Serial_ {
 
     uint8_t available();
     uint8_t read();
+    uint8_t peek();
+    String readStringUntil(const char terminator);
 
     static void flush();
 
