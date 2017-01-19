@@ -101,7 +101,7 @@ class Serial_ {
     static size_t println(const Printable&);
     */
 };
-extern Serial_ Serial;
+extern Serial_ Serial, Serial1, Serial2, Serial3;
 
 SerialMock* serialMockInstance();
 void releaseSerialMock();

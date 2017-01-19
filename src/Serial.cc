@@ -221,4 +221,4 @@ uint8_t Serial_::read() {
 }
 
 // Preinstantiate Objects
-Serial_ Serial;
+Serial_ Serial, Serial1, Serial2, Serial3;
