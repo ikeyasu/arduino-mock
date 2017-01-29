@@ -220,5 +220,15 @@ uint8_t Serial_::read() {
   return gSerialMock->read();
 }
 
+const char* Serial_::readStringUntil(char delimiter) {
+    assert (gSerialMock != NULL);
+    return gSerialMock->readStringUntil(delimiter);
+}
+
+int Serial_::parseInt() {
+    assert (gSerialMock != NULL);
+    return gSerialMock->parseInt();
+}
+
 // Preinstantiate Objects
 Serial_ Serial, Serial1, Serial2, Serial3;

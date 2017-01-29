@@ -41,6 +41,9 @@ class SerialMock {
 
     MOCK_METHOD0(flush, void());
 
+    MOCK_METHOD1(readStringUntil, const char*(char));
+    MOCK_METHOD0(parseInt, int());
+
     /* Not implemented yet
     MOCK_METHOD2(println, size_t(unsigned char, int));
     MOCK_METHOD2(println, size_t(unsigned int, int));
@@ -86,6 +89,8 @@ class Serial_ {
 
     uint8_t available();
     uint8_t read();
+    const char* readStringUntil(char delimiter);
+    int parseInt();
 
     static void flush();
 
