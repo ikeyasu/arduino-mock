@@ -3,7 +3,6 @@ project (arduino_mock)
 
 find_package(Threads REQUIRED)
 add_subdirectory(lib/gtest)
-add_subdirectory(lib/gmock)
 
 message ("building arduino_mock")
 message("Gtest include: ${GTEST_INCLUDE_DIRS}")
@@ -32,7 +31,7 @@ set_target_properties( arduino_mock
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/dist/bin"
 )
 
-add_dependencies(arduino_mock gtest gmock)
+add_dependencies(arduino_mock gtest)
 
 option(test "Build all tests." OFF)
 
