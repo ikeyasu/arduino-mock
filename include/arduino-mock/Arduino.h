@@ -69,6 +69,8 @@ void detachInterrupt(uint8_t);
 void setup(void);
 void loop(void);
 
+uint8_t pgm_read_byte_near(const char *);
+
 #ifdef __cplusplus
 } // extern "C"
 #endif
