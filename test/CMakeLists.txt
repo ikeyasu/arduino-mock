@@ -9,6 +9,7 @@ target_link_libraries(test_all
     ${GTEST_LIBS_DIR}/libgtest.a
     ${GTEST_LIBS_DIR}/libgtest_main.a
     ${GMOCK_LIBS_DIR}/libgmock.a
+    ${GMOCK_LIBS_DIR}/libgmock_main.a
     ${CMAKE_THREAD_LIBS_INIT}
 )
 
