@@ -18,7 +18,7 @@ class SPISettings {
     }
 };
 
-class SPI_ {
+class SPIClass {
   public:
     void begin();
     void usingInterrupt(uint8_t );
