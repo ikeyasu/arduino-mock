@@ -1,8 +1,8 @@
 #include "gtest/gtest.h"
-#include "arduino-mock/Arduino.h"
-#include "arduino-mock/Serial.h"
+#include "Arduino.h"
+#include "Serial.h"
 
-#include "arduino-mock/serialHelper.h"
+#include "serialHelper.h"
 
 using ::testing::_;
 using ::testing::Return;

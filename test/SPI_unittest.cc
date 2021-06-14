@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
-#include "arduino-mock/SPI.h"
-#include "arduino-mock/Arduino.h"
+#include "SPI.h"
+#include "Arduino.h"
 
 
 using ::testing::Return;

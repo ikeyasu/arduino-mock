@@ -5,9 +5,9 @@
 #define DEBUG_LOG false
 
 #include "gtest/gtest.h"
-#include "arduino-mock/Arduino.h"
+#include "Arduino.h"
 
-#include "arduino-mock/Spark.h"
+#include "Spark.h"
 
 using ::testing::StrCaseEq;
 
