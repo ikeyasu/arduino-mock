@@ -102,6 +102,8 @@ class Serial_ {
     */
 };
 
+class HardwareSerial : public Serial_ {};
+
 extern Serial_ Serial;
 
 SerialMock* serialMockInstance();
