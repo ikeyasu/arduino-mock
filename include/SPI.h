@@ -18,7 +18,7 @@ class SPISettings {
     }
 };
 
-class SPI_ {
+class SPIClass {
   public:
     void begin();
     void usingInterrupt(uint8_t );
@@ -36,7 +36,7 @@ class SPI_ {
     void detachInterrupt();
 };
 
-extern SPI_ SPI;
+extern SPIClass SPI;
 
 class SPIMock {
   public:

@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
-#include "arduino-mock/Wire.h"
-#include "arduino-mock/Arduino.h"
+#include "Wire.h"
+#include "Arduino.h"
 
 using ::testing::Return;
 TEST(Wire, access) {

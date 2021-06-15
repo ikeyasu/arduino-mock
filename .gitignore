@@ -63,3 +63,6 @@ test/test_all
 #ignore external lib
 /lib/gmock/gmock/
 /lib/gtest/gtest/
+
+#ingore IDE files
+.vscode

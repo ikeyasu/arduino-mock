@@ -1,9 +1,8 @@
-cmake_minimum_required (VERSION 2.8.8)
+cmake_minimum_required (VERSION 3.20.0)
 project (arduino_mock)
 
 find_package(Threads REQUIRED)
 add_subdirectory(lib/gtest)
-add_subdirectory(lib/gmock)
 
 message ("building arduino_mock")
 message("Gtest include: ${GTEST_INCLUDE_DIRS}")
@@ -25,14 +24,13 @@ target_link_libraries(arduino_mock
     ${CMAKE_THREAD_LIBS_INIT}
 )
 
-set_target_properties( arduino_mock
-  PROPERTIES
+set_target_properties(arduino_mock PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/dist/lib"
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/dist/lib"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/dist/bin"
 )
 
-add_dependencies(arduino_mock gtest gmock)
+add_dependencies(arduino_mock gtest)
 
 option(test "Build all tests." OFF)
 
