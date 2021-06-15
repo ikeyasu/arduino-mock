@@ -5,6 +5,7 @@
 #define ARDUINO_H
 
 #include <stdint.h>
+#include <Serial.h>
 
 #ifdef __cplusplus
 extern "C" {
