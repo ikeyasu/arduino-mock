@@ -221,4 +221,4 @@ uint8_t Serial::read() {
 }
 
 // Preinstantiate Objects
-Serial SerialClass;
+Serial SerialInstance;
