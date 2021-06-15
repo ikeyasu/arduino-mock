@@ -31,20 +31,20 @@ TEST(SPITest, access) {
   EXPECT_CALL(*mock, detachInterrupt());
 
 
-  SPIInstance.begin();
-  SPIInstance.usingInterrupt(value1);
-  SPIInstance.notUsingInterrupt(value1);
-  SPIInstance.beginTransaction(settings);
-  SPIInstance.transfer(value1);
-  SPIInstance.transfer16(value);
-  SPIInstance.transfer(voidTest, value1);
-  SPIInstance.endTransaction();
-  SPIInstance.end();
-  SPIInstance.setBitOrder(value1);
-  SPIInstance.setDataMode(value1);
-  SPIInstance.setClockDivider(value1);
-  SPIInstance.attachInterrupt();
-  SPIInstance.detachInterrupt();
+  SPI.begin();
+  SPI.usingInterrupt(value1);
+  SPI.notUsingInterrupt(value1);
+  SPI.beginTransaction(settings);
+  SPI.transfer(value1);
+  SPI.transfer16(value);
+  SPI.transfer(voidTest, value1);
+  SPI.endTransaction();
+  SPI.end();
+  SPI.setBitOrder(value1);
+  SPI.setDataMode(value1);
+  SPI.setClockDivider(value1);
+  SPI.attachInterrupt();
+  SPI.detachInterrupt();
 
   releaseSPIMock();
 }

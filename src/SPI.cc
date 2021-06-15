@@ -73,4 +73,4 @@ void SPIClass::detachInterrupt() {
 }
 
 // Preinstantiate Objects
-SPIClass SPIInstance;
+SPIClass SPI;
