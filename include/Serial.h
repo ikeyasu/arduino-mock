@@ -50,7 +50,7 @@ class SerialMock {
     */
 };
 
-class Serial {
+class Serial_ {
 
   private:
     static bool printToCout;
@@ -102,7 +102,7 @@ class Serial {
     */
 };
 
-extern Serial SerialInstance;
+extern Serial_ Serial;
 
 SerialMock* serialMockInstance();
 void releaseSerialMock();
